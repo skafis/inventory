@@ -1,0 +1,11 @@
+{% extends 'master.html' %}
+{% load staticfiles %}
+{% block content %}
+<h2>enter inventory</h2>
+<div class="row">
+	<form method="POST">{% csrf_token %}
+	{{ form.as_p }}		
+	<button type="submit" class="button">save</button>
+	</form>	
+</div>
+{% endblock content %}
