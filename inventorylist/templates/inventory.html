@@ -11,49 +11,22 @@
 								 	<th>purchased Inventory</th>
 								 	<th>usage</th>
 								 	<th>closing</th>
+								 	<th><a href={% url 'create' %} class="btn" type="button">add items</a></th>
 								</tr>
 							</thead>
-							<tbody>
+							<tbody>  
 							{% for inventory in inventory_list %}
 								<tr>
-									<td>{{inventory.id}} {{inventory.name}}</td>
+									<td>{{inventory.id}}. {{inventory.name}}</td>
 									<td>{{inventory.unit_measure}} {{inventory.no_of_units}}</td>
-									<td></td>
+									<td>{{inventory.purchased_inventory}}</td>
+									<td>{{inventory.usage}}</td>
+									<td>{{inventory.closing_inventory}}</td>
+									<td><a href='/{{inventory.id}}/update'  class="btn" type="button">edit</a></td>
 								</tr>
 
 							{% endfor %}
 							</tbody>
-							<!-- 
-{% for inventory in inventory_list %}
-	{{inventory.name}}<br>
-	{% endfor %} -->
 </div>
-<!-- <div class="col-md-2">
-<h4></h4>
-{% for inventory in inventory_list %}
-{{inventory.unit_measure}}
-{{inventory.no_of_units}}<br>
-{% endfor %}
-	
-</div>
-<div class="col-md-2">
-<h4></h4>
-{% for inventory in inventory_list %}
-{% endfor %}
-	
-</div>
-<div class="col-md-2">
-<h4></h4>
-
-{% for inventory in inventory_list %}
-{% endfor %}
-</div>
-<div class="col-md-2">
-<h4></h4>
-
-{% for inventory in inventory_list %}
-{% endfor %}
-</div>
-</div> -->
 
 {% endblock content %}
