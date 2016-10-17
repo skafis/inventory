@@ -6,7 +6,7 @@ class Add_inventoryForm(forms.ModelForm):
 		model= Inventory
 		fields = [
 		'name',
-		# 'description',
+		'description',
 		'unit_measure',
 		'no_of_units',
 		'period_of_measure',

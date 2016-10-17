@@ -12,3 +12,6 @@ def  read_inventory(request, template_name='inventory.html'):
 
 def update_inventory(request, pk, template_name='add_inventory.html'):
 	return inventory.update_inventory(request, pk, template_name=template_name)
+
+def delete_inventory(request, pk, template_name="inventory.html"):
+	return inventory.delete_inventory(request, pk, template_name=template_name)

@@ -17,13 +17,32 @@
 							<tbody>  
 							{% for inventory in inventory_list %}
 								<tr>
-									<td>{{inventory.id}}. {{inventory.name}}</td>
+									<td>{{inventory.id}}. {{inventory.name}} <a href="#" data-toggle="modal" data-target="#description">desc</a></td>
 									<td>{{inventory.unit_measure}} {{inventory.no_of_units}}</td>
-									<td>{{inventory.purchased_inventory}}</td>
-									<td>{{inventory.usage}}</td>
-									<td>{{inventory.closing_inventory}}</td>
+									<td>{{inventory.unit_measure}} {{inventory.purchased_inventory}}</td>
+									<td>{{inventory.unit_measure}} {{inventory.usage}}</td>
+									<td>{{inventory.unit_measure}} {{inventory.closing_inventory}}</td>
 									<td><a href='/{{inventory.id}}/update'  class="btn" type="button">edit</a></td>
+									<td><a href='/{{inventory.id}}/delete'  class="btn" type="button">delete</a></td>
 								</tr>
+								<!-- Modal -->
+								<div class="modal fade" id="description" tabindex="-1" role="dialog" aria-labelledby="description" aria-hidden="true">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true">&times;</span>
+								        </button>
+								        <h4 class="modal-title" id="myModalLabel">Description</h4>
+								      </div>
+								      <div class="modal-body">
+								      	{{inventory.id}}
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								    </div>
+								  </div>
+								</div>
 
 							{% endfor %}
 							</tbody>

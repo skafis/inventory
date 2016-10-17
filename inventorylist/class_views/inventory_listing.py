@@ -18,6 +18,7 @@ def create_inventory(request, template_name='add_inventory.html'):
 
 def read_inventory(request, template_name='inventory.html'):
 	inventory_list = Inventory.objects.order_by('id')
+	# closing_inventory = inventorylist.no_of_units + inventory_list.purchased_inventory
 	ctx = {}
 	ctx['inventory_list'] = inventory_list
 
@@ -32,3 +33,9 @@ def update_inventory(request, pk, template_name='add_inventory.html'):
 		return redirect('view')
 	ctx['form']=form
 	return render(request, template_name, ctx)
+
+def delete_inventory(request, pk, template_name='inventory.html'):
+	item = Inventory.objects.get(pk=pk)
+	item.delete()
+	return redirect('view')
+
