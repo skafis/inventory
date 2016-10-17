@@ -2,16 +2,34 @@
 {% load staticfiles %}
 {% block content %}
 
+<div class="table-responsive">
+	<table class="table" style="width:100%" >
+							<thead>
+								<tr>
+									<th>Particular/description</th>
+								 	<th>Open Inventory</th>
+								 	<th>purchased Inventory</th>
+								 	<th>usage</th>
+								 	<th>closing</th>
+								</tr>
+							</thead>
+							<tbody>
+							{% for inventory in inventory_list %}
+								<tr>
+									<td>{{inventory.id}} {{inventory.name}}</td>
+									<td>{{inventory.unit_measure}} {{inventory.no_of_units}}</td>
+									<td></td>
+								</tr>
 
-<div class="row">
-<div class="col-md-3">
-<h4>Particular/description</h4>
+							{% endfor %}
+							</tbody>
+							<!-- 
 {% for inventory in inventory_list %}
 	{{inventory.name}}<br>
-	{% endfor %}
+	{% endfor %} -->
 </div>
-<div class="col-md-2">
-<h4>Open Inventory</h4>
+<!-- <div class="col-md-2">
+<h4></h4>
 {% for inventory in inventory_list %}
 {{inventory.unit_measure}}
 {{inventory.no_of_units}}<br>
@@ -19,23 +37,23 @@
 	
 </div>
 <div class="col-md-2">
-<h4>purchased Inventory</h4>
+<h4></h4>
 {% for inventory in inventory_list %}
 {% endfor %}
 	
 </div>
 <div class="col-md-2">
-<h4>usage</h4>
+<h4></h4>
 
 {% for inventory in inventory_list %}
 {% endfor %}
 </div>
 <div class="col-md-2">
-<h4>closing</h4>
+<h4></h4>
 
 {% for inventory in inventory_list %}
 {% endfor %}
 </div>
-</div>
+</div> -->
 
 {% endblock content %}
