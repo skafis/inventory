@@ -1,11 +1,29 @@
 {% extends 'master.html' %}
 {% load staticfiles %}
 {% block content %}
-<h2>enter inventory</h2>
+
+{% for inventory in inventory_list %}
 <div class="row">
-	<form method="POST">{% csrf_token %}
-	{{ form.as_p }}		
-	<button type="submit" class="button">save</button>
-	</form>	
+<div class="col-md-3">
+<h4>Particular/description</h4>
+	{{inventory.name}}
 </div>
+<div class="col-md-2">
+<h4>Open Inventory</h4>
+{{inventory.unit_measure}}
+{{inventory.no_of_units}}
+	
+</div>
+<div class="col-md-2">
+<h4>purchased Inventory</h4>
+	
+</div>
+<div class="col-md-2">
+<h4>usage</h4>
+</div>
+<div class="col-md-2">
+<h4>closing</h4>
+</div>
+{% endfor %}
+
 {% endblock content %}
