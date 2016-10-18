@@ -18,14 +18,15 @@ def create_inventory(request, template_name='add_inventory.html'):
 
 def read_inventory(request, template_name='inventory.html'):
 	inventory_list = Inventory.objects.all()
-	for items in inventory_list:
-
+	ctx = {} 
+	for items in Inventory.objects.all():
 		inventory_purchased =  items.purchased_inventory
 		inventory_open = items.no_of_units
 		used_items = items.usage
-		closing_stock = (inventory_open+inventory_purchased)-used_items
+		closing_stock = (inventory_open + inventory_purchased) - used_items
+		ctx['closing_stock'] = closing_stock
 		print closing_stock
-	ctx = {}
+	
 	ctx['inventory_list'] = inventory_list
 
 	return render(request, template_name, ctx)
