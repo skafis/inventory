@@ -18,7 +18,12 @@ def create_inventory(request, template_name='add_inventory.html'):
 
 def read_inventory(request, template_name='inventory.html'):
 	inventory_list = Inventory.objects.order_by('id')
-	# closing_inventory = inventorylist.no_of_units + inventory_list.purchased_inventory
+	# val = Inventory.objects.get()
+	# units = inventory_list.no_of_units
+	# print units
+	# no_of_units = request.POST['no_of_units']
+	# print no_of_units
+	# purchased_inventory = request.POST['']
 	ctx = {}
 	ctx['inventory_list'] = inventory_list
 
