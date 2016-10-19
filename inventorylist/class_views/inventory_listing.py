@@ -18,15 +18,19 @@ def create_inventory(request, template_name='add_inventory.html'):
 
 def read_inventory(request, template_name='inventory.html'):
 	inventory_list = Inventory.objects.all()
-	ctx = {} 
+	ctx = {}
+	closing_stock = []
 	for items in Inventory.objects.all():
+		
 		inventory_purchased =  items.purchased_inventory
 		inventory_open = items.no_of_units
 		used_items = items.usage
-		closing_stock = (inventory_open + inventory_purchased) - used_items
-		ctx['closing_stock'] = closing_stock
+		closing_ = (inventory_open + inventory_purchased) - used_items
+		closing_stock.append(closing_)
+		# ctx['closing_stock'].append(closing_stock)
 		print closing_stock
 	
+	ctx['closing_stock'] = closing_stock 
 	ctx['inventory_list'] = inventory_list
 
 	return render(request, template_name, ctx)
@@ -46,3 +50,5 @@ def delete_inventory(request, pk, template_name='inventory.html'):
 	item.delete()
 	return redirect('view')
 
+def login_method(request, template_name='w.html'):
+	return render(request, template_name)

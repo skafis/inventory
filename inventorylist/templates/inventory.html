@@ -14,18 +14,22 @@
 								 	<th><a href={% url 'create' %} class="btn" type="button">add items</a></th>
 								</tr>
 							</thead>
-							<tbody>  
+							<tbody> 
+							
 							{% for inventory in inventory_list %}
-								<!-- { % for items in closing_stock %} -->
+								
 								<tr>
 									<td>{{inventory.id}}. {{inventory.name}} <a href="#" data-toggle="modal" data-target="#description">desc</a></td>
 									<td>{{inventory.unit_measure}} {{inventory.no_of_units}}</td>
 									<td>{{inventory.unit_measure}} {{inventory.purchased_inventory}}</td>
 									<td>{{inventory.unit_measure}} {{inventory.usage}}</td>
-									<td>{{inventory.unit_measure}} {{closing_stock}}</td>
 									<td><a href='/{{inventory.id}}/update'  class="btn" type="button">edit</a></td>
 									<td><a href='/{{inventory.id}}/delete'  class="btn" type="button">delete</a></td>
 									
+
+								
+							<td>{{closing_stock}}</td>
+							{% endfor %}									
 								</tr>
 								<!-- Modal -->
 								<div class="modal fade" id="description" tabindex="-1" role="dialog" aria-labelledby="description" aria-hidden="true">
@@ -45,7 +49,6 @@
 								    </div>
 								  </div>
 								</div>
-							{% endfor %}
 							</tbody>
 </div>
 

@@ -15,3 +15,6 @@ def update_inventory(request, pk, template_name='add_inventory.html'):
 
 def delete_inventory(request, pk, template_name="inventory.html"):
 	return inventory.delete_inventory(request, pk, template_name=template_name)
+
+def login_method(request, template_name="widget.html"):
+	return inventory.login_method(request, template_name=template_name)
