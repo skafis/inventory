@@ -20,9 +20,10 @@
 								
 								<tr>
 									<td>{{inventory.id}}. {{inventory.name}} <a href="#" data-toggle="modal" data-target="#description">desc</a></td>
-									<td>{{inventory.unit_measure}} {{inventory.no_of_units}}</td>
-									<td>{{inventory.unit_measure}} {{inventory.purchased_inventory}}</td>
-									<td>{{inventory.unit_measure}} {{inventory.usage}}</td>
+									<td id="opening_units">{{inventory.unit_measure}} {{inventory.no_of_units}}</td>
+									<td id="purchased_units">{{inventory.unit_measure}} {{inventory.purchased_inventory}}</td>
+									<td id="used_units">{{inventory.unit_measure}} {{inventory.usage}}</td>
+									<td>{{inventory.unit_measure}} {{inventory.closing_inventory}}</td>
 									<td><a href='/{{inventory.id}}/update'  class="btn" type="button">edit</a></td>
 									<td><a href='/{{inventory.id}}/delete'  class="btn" type="button">delete</a></td>
 									
@@ -51,5 +52,14 @@
 								</div>
 							</tbody>
 </div>
+{% block extended_script %}
+<script>
+var start_units = document.getElementById("opening_units").value; 	
+var purchased_units = document.getElementById("purchased_units").value; 	
+var used = document.getElementById("used_units").value; 
 
+var total = (start_units+purchased_units)-used
+console.log(total)
+</script>
+    {% endblock %}
 {% endblock content %}

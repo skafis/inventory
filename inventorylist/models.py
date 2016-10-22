@@ -11,4 +11,10 @@ class Inventory(models.Model):
 	period_of_measure = models.CharField(max_length=100)
 	purchased_inventory = models.IntegerField()
 	usage = models.IntegerField()
-	closing_inventory = models.IntegerField()
+	closing_inventory = models.IntegerField(null=True)
+
+	# def _get_total(self):
+	# 	"Returns the total"
+	# 	return self.no_of_units * self.purchased_inventory
+		
+	# closing_inventory = property(_get_total)
